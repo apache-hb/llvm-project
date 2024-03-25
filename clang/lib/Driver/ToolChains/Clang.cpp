@@ -7022,8 +7022,11 @@ void Clang::ConstructJob(Compilation &C, const JobAction &JA,
                              .Case("c++14", "-std=c++14")
                              .Case("c++17", "-std=c++17")
                              .Case("c++20", "-std=c++20")
-                             // TODO add c++23 and c++26 when MSVC supports it.
-                             .Case("c++latest", "-std=c++26")
+                             .Case("c++2b", "-std=c++23")
+                             .Case("c++23", "-std=c++23")
+                             .Case("c++2c", "-std=c++26")
+                             .Case("c++26", "-std=c++26")
+                             .Case("c++latest", "-stdc++26")
                              .Default("");
       if (LanguageStandard.empty())
         D.Diag(clang::diag::warn_drv_unused_argument)
