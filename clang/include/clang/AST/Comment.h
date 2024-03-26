@@ -121,7 +121,7 @@ protected:
     unsigned CommandID : CommandInfo::NumCommandIDBits;
   };
   enum { NumInlineCommandCommentBits = NumInlineContentCommentBits + 3 +
-                                       CommandInfo::NumCommandIDBits };
+                                       (unsigned)CommandInfo::NumCommandIDBits };
 
   class HTMLTagCommentBitfields {
     friend class HTMLTagComment;
@@ -1125,4 +1125,3 @@ public:
 } // end namespace clang
 
 #endif
-
