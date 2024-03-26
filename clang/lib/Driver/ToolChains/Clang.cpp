@@ -7026,7 +7026,7 @@ void Clang::ConstructJob(Compilation &C, const JobAction &JA,
                              .Case("c++23", "-std=c++23")
                              .Case("c++2c", "-std=c++26")
                              .Case("c++26", "-std=c++26")
-                             .Case("c++latest", "-stdc++26")
+                             .Case("c++latest", "-std=c++26")
                              .Default("");
       if (LanguageStandard.empty())
         D.Diag(clang::diag::warn_drv_unused_argument)
