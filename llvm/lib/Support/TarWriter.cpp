@@ -21,6 +21,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/Support/TarWriter.h"
 #include "llvm/ADT/StringRef.h"
 #include "llvm/Support/FileSystem.h"

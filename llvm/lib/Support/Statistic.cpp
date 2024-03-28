@@ -20,6 +20,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/ADT/Statistic.h"
 
 #include "DebugOptions.h"
@@ -34,8 +36,7 @@
 #include "llvm/Support/Timer.h"
 #include "llvm/Support/YAMLTraits.h"
 #include "llvm/Support/raw_ostream.h"
-#include <algorithm>
-#include <cstring>
+
 using namespace llvm;
 
 /// -stats - Command line option to cause transformations to emit stats about

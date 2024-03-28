@@ -11,6 +11,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/Support/Signals.h"
 
 #include "DebugOptions.h"
@@ -29,9 +31,6 @@
 #include "llvm/Support/Program.h"
 #include "llvm/Support/StringSaver.h"
 #include "llvm/Support/raw_ostream.h"
-#include <array>
-#include <cmath>
-#include <vector>
 
 //===----------------------------------------------------------------------===//
 //=== WARNING: Implementation here must contain only TRULY operating system

@@ -6,6 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/Config/config.h"
 #include "llvm/Support/SMTAPI.h"
 

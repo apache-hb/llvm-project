@@ -10,10 +10,10 @@
 ///
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/Demangle/Demangle.h"
 #include "llvm/Demangle/StringViewExtras.h"
-#include <cstdlib>
-#include <string_view>
 
 using llvm::itanium_demangle::starts_with;
 

@@ -10,6 +10,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/Support/Program.h"
 #include "llvm/ADT/StringRef.h"
 #include "llvm/Config/llvm-config.h"

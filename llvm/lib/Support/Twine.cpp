@@ -6,6 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/ADT/Twine.h"
 #include "llvm/ADT/SmallString.h"
 #include "llvm/Config/llvm-config.h"

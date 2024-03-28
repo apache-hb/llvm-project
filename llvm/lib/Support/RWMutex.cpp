@@ -10,6 +10,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/Support/Allocator.h"
 #include "llvm/Support/RWMutex.h"
 #include "llvm/Config/config.h"

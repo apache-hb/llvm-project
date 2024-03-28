@@ -10,8 +10,9 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/Support/OptimizedStructLayout.h"
-#include <optional>
 
 using namespace llvm;
 

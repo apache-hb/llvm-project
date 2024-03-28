@@ -10,6 +10,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/Support/YAMLParser.h"
 #include "llvm/ADT/AllocatorList.h"
 #include "llvm/ADT/ArrayRef.h"
@@ -26,14 +28,6 @@
 #include "llvm/Support/SourceMgr.h"
 #include "llvm/Support/Unicode.h"
 #include "llvm/Support/raw_ostream.h"
-#include <cassert>
-#include <cstddef>
-#include <cstdint>
-#include <map>
-#include <memory>
-#include <string>
-#include <system_error>
-#include <utility>
 
 using namespace llvm;
 using namespace yaml;

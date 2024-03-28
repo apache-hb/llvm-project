@@ -6,6 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/Support/RISCVAttributes.h"
 
 using namespace llvm;

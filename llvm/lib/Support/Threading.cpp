@@ -11,15 +11,11 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/Support/Threading.h"
 #include "llvm/Config/config.h"
 #include "llvm/Config/llvm-config.h"
-
-#include <cassert>
-#include <errno.h>
-#include <optional>
-#include <stdlib.h>
-#include <string.h>
 
 using namespace llvm;
 

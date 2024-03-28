@@ -6,6 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/Support/StringSaver.h"
 
 #include "llvm/ADT/SmallString.h"

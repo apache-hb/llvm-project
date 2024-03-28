@@ -11,6 +11,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/Support/Unicode.h"
 
 int llvm::sys::unicode::foldCharSimple(int C) {

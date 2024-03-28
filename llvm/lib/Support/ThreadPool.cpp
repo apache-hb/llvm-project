@@ -10,6 +10,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/Support/ThreadPool.h"
 
 #include "llvm/Config/llvm-config.h"

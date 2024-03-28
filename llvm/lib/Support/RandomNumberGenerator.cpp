@@ -12,6 +12,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/Support/RandomNumberGenerator.h"
 
 #include "DebugOptions.h"

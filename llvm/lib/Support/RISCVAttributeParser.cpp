@@ -6,6 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/Support/RISCVAttributeParser.h"
 #include "llvm/ADT/StringExtras.h"
 

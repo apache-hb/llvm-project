@@ -13,14 +13,12 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/Support/SpecialCaseList.h"
 #include "llvm/Support/LineIterator.h"
 #include "llvm/Support/MemoryBuffer.h"
 #include "llvm/Support/VirtualFileSystem.h"
-#include <stdio.h>
-#include <string>
-#include <system_error>
-#include <utility>
 
 namespace llvm {
 

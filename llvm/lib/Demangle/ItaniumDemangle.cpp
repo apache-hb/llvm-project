@@ -10,17 +10,10 @@
 // file does not yet support:
 //   - C++ modules TS
 
+#include "stdafx.h"
+
 #include "llvm/Demangle/Demangle.h"
 #include "llvm/Demangle/ItaniumDemangle.h"
-
-#include <cassert>
-#include <cctype>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <exception>
-#include <functional>
-#include <utility>
 
 using namespace llvm;
 using namespace llvm::itanium_demangle;
@@ -276,7 +269,7 @@ struct DumpVisitor {
     Depth -= 2;
   }
 };
-}
+} // unnamed namespace
 
 void itanium_demangle::Node::dump() const {
   DumpVisitor V;

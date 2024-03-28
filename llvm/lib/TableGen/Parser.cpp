@@ -6,6 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "stdafx.h"
+
 #include "llvm/TableGen/Parser.h"
 #include "TGParser.h"
 #include "llvm/Support/MemoryBuffer.h"
