@@ -6,8 +6,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/ADT/StringRef.h"
 #include "llvm/ADT/APFloat.h"
 #include "llvm/ADT/APInt.h"
@@ -15,6 +13,7 @@
 #include "llvm/ADT/StringExtras.h"
 #include "llvm/ADT/edit_distance.h"
 #include "llvm/Support/Error.h"
+#include <bitset>
 
 using namespace llvm;
 

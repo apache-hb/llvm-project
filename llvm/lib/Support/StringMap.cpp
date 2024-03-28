@@ -10,8 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/ADT/StringMap.h"
 #include "llvm/Support/MathExtras.h"
 #include "llvm/Support/ReverseIteration.h"

@@ -12,8 +12,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
+#include <stddef.h>
 #include "llvm/Support/Valgrind.h"
 #include "llvm/Config/config.h"
 

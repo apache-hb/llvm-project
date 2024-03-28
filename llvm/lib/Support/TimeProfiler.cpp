@@ -10,8 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/Support/TimeProfiler.h"
 #include "llvm/ADT/STLExtras.h"
 #include "llvm/ADT/STLFunctionalExtras.h"
@@ -20,6 +18,13 @@
 #include "llvm/Support/Path.h"
 #include "llvm/Support/Process.h"
 #include "llvm/Support/Threading.h"
+#include <algorithm>
+#include <cassert>
+#include <chrono>
+#include <memory>
+#include <mutex>
+#include <string>
+#include <vector>
 
 using namespace llvm;
 

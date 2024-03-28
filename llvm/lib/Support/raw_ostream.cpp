@@ -10,8 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/ADT/StringExtras.h"
 #include "llvm/Config/config.h"
@@ -26,6 +24,9 @@
 #include "llvm/Support/NativeFormatting.h"
 #include "llvm/Support/Process.h"
 #include "llvm/Support/Program.h"
+#include <algorithm>
+#include <cerrno>
+#include <cstdio>
 #include <sys/stat.h>
 
 // <fcntl.h> may provide O_BINARY.

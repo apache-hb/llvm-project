@@ -10,8 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/ADT/StringRef.h"
 #include "llvm/TableGen/TableGenBackend.h"
 

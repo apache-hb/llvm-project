@@ -10,14 +10,13 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/Support/Timer.h"
 
 #include "DebugOptions.h"
 
 #include "llvm/ADT/Statistic.h"
 #include "llvm/ADT/StringMap.h"
+#include "llvm/Config/config.h"
 #include "llvm/Support/CommandLine.h"
 #include "llvm/Support/FileSystem.h"
 #include "llvm/Support/Format.h"
@@ -27,6 +26,7 @@
 #include "llvm/Support/Signposts.h"
 #include "llvm/Support/YAMLTraits.h"
 #include "llvm/Support/raw_ostream.h"
+#include <limits>
 
 #if HAVE_UNISTD_H
 #include <unistd.h>

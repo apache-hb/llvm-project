@@ -6,12 +6,16 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/Support/Parallel.h"
 #include "llvm/Config/llvm-config.h"
 #include "llvm/Support/ManagedStatic.h"
 #include "llvm/Support/Threading.h"
+
+#include <atomic>
+#include <deque>
+#include <future>
+#include <thread>
+#include <vector>
 
 llvm::ThreadPoolStrategy llvm::parallel::strategy;
 

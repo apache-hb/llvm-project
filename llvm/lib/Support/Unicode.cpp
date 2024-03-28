@@ -11,8 +11,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/Support/Unicode.h"
 #include "llvm/Support/ConvertUTF.h"
 #include "llvm/Support/UnicodeCharRanges.h"

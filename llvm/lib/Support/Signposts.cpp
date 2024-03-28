@@ -6,8 +6,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/Support/Signposts.h"
 #include "llvm/ADT/StringRef.h"
 #include "llvm/Config/config.h"

@@ -10,8 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/Support/SuffixTree.h"
 #include "llvm/Support/Allocator.h"
 #include "llvm/Support/Casting.h"

@@ -48,7 +48,7 @@ T DataExtractor::getU(uint64_t *offset_ptr, Error *Err) const {
   if (!prepareRead(offset, sizeof(T), Err))
     return val;
   std::memcpy(&val, &Data.data()[offset], sizeof(val));
-  if (sys::IsLittleEndianHost != !!IsLittleEndian)
+  if (sys::IsLittleEndianHost != IsLittleEndian)
     sys::swapByteOrder(val);
 
   // Advance the offset

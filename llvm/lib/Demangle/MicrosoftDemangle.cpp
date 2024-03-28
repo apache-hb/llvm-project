@@ -13,8 +13,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/Demangle/MicrosoftDemangle.h"
 
 #include "llvm/Demangle/Demangle.h"
@@ -22,6 +20,12 @@
 #include "llvm/Demangle/MicrosoftDemangleNodes.h"
 #include "llvm/Demangle/StringViewExtras.h"
 #include "llvm/Demangle/Utility.h"
+
+#include <array>
+#include <cctype>
+#include <cstdio>
+#include <string_view>
+#include <tuple>
 
 using namespace llvm;
 using namespace ms_demangle;
@@ -229,7 +233,7 @@ static FunctionRefQualifier
 demangleFunctionRefQualifier(std::string_view &MangledName) {
   if (consumeFront(MangledName, 'G'))
     return FunctionRefQualifier::Reference;
-  if (consumeFront(MangledName, 'H'))
+  else if (consumeFront(MangledName, 'H'))
     return FunctionRefQualifier::RValueReference;
   return FunctionRefQualifier::None;
 }
@@ -936,10 +940,10 @@ Demangler::demangleNumber(std::string_view &MangledName) {
   }
 
   uint64_t Ret = 0;
-  for (size_t I = 0; I < MangledName.size(); ++I) {
-    char C = MangledName[I];
+  for (size_t i = 0; i < MangledName.size(); ++i) {
+    char C = MangledName[i];
     if (C == '@') {
-      MangledName.remove_prefix(I + 1);
+      MangledName.remove_prefix(i + 1);
       return {Ret, IsNegative};
     }
     if ('A' <= C && C <= 'P') {
@@ -977,8 +981,8 @@ int64_t Demangler::demangleSigned(std::string_view &MangledName) {
 void Demangler::memorizeString(std::string_view S) {
   if (Backrefs.NamesCount >= BackrefContext::Max)
     return;
-  for (size_t I = 0; I < Backrefs.NamesCount; ++I)
-    if (S == Backrefs.Names[I]->Name)
+  for (size_t i = 0; i < Backrefs.NamesCount; ++i)
+    if (S == Backrefs.Names[i]->Name)
       return;
   NamedIdentifierNode *N = Arena.alloc<NamedIdentifierNode>();
   N->Name = S;
@@ -1422,13 +1426,13 @@ StringLiteralError:
 std::string_view Demangler::demangleSimpleString(std::string_view &MangledName,
                                                  bool Memorize) {
   std::string_view S;
-  for (size_t I = 0; I < MangledName.size(); ++I) {
-    if (MangledName[I] != '@')
+  for (size_t i = 0; i < MangledName.size(); ++i) {
+    if (MangledName[i] != '@')
       continue;
-    if (I == 0)
+    if (i == 0)
       break;
-    S = MangledName.substr(0, I);
-    MangledName.remove_prefix(I + 1);
+    S = MangledName.substr(0, i);
+    MangledName.remove_prefix(i + 1);
 
     if (Memorize)
       memorizeString(S);

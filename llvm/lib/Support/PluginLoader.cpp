@@ -10,14 +10,12 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #define DONT_GET_PLUGIN_LOADER_OPTION
 #include "llvm/Support/PluginLoader.h"
 #include "llvm/Support/DynamicLibrary.h"
 #include "llvm/Support/Mutex.h"
 #include "llvm/Support/raw_ostream.h"
-
+#include <vector>
 using namespace llvm;
 
 namespace {

@@ -11,14 +11,13 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/ADT/Twine.h"
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/Support/Signals.h"
 #include "llvm/Support/WithColor.h"
 #include "llvm/TableGen/Error.h"
 #include "llvm/TableGen/Record.h"
+#include <cstdlib>
 
 namespace llvm {
 

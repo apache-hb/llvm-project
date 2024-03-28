@@ -14,8 +14,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/TableGen/Main.h"
 #include "TGLexer.h"
 #include "TGParser.h"
@@ -32,7 +30,10 @@
 #include "llvm/TableGen/Error.h"
 #include "llvm/TableGen/Record.h"
 #include "llvm/TableGen/TableGenBackend.h"
-
+#include <memory>
+#include <string>
+#include <system_error>
+#include <utility>
 using namespace llvm;
 
 static cl::opt<std::string>
@@ -171,7 +172,7 @@ int llvm::TableGenMain(const char *argv0,
     if (ErrorsPrinted == 0)
       OutFile.keep();
   }
-
+  
   Records.stopTimer();
   Records.stopPhaseTiming();
 

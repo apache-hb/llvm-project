@@ -11,8 +11,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/Support/SuffixTreeNode.h"
 #include "llvm/Support/Casting.h"
 

@@ -6,13 +6,11 @@
 //
 //===----------------------------------------------------------------------===//
 //
-// This Tablegen backend prints a report that includes all the global
+// This Tablegen backend prints a report that includes all the global 
 // variables, classes, and records in complete detail. It includes more
 // detail than the default TableGen printer backend.
 //
 //===----------------------------------------------------------------------===//
-
-#include "stdafx.h"
 
 #include "llvm/ADT/ArrayRef.h"
 #include "llvm/ADT/StringRef.h"
@@ -23,6 +21,10 @@
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/TableGen/Error.h"
 #include "llvm/TableGen/Record.h"
+#include <map>
+#include <memory>
+#include <string>
+#include <utility>
 
 #define DEBUG_TYPE "detailed-records-backend"
 

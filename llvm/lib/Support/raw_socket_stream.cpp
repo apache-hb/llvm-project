@@ -11,8 +11,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/Support/raw_socket_stream.h"
 #include "llvm/Config/config.h"
 #include "llvm/Support/Error.h"
@@ -171,3 +169,4 @@ raw_socket_stream::createConnectedUnix(StringRef SocketPath) {
 }
 
 raw_socket_stream::~raw_socket_stream() {}
+

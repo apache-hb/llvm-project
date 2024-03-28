@@ -10,12 +10,13 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/ADT/SmallVector.h"
 #include "llvm/ADT/Twine.h"
 #include "llvm/Support/MemAlloc.h"
-
+#include <cstdint>
+#ifdef LLVM_ENABLE_EXCEPTIONS
+#include <stdexcept>
+#endif
 using namespace llvm;
 
 // Check that no bytes are wasted and everything is well-aligned.

@@ -13,11 +13,14 @@
 ///
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/Demangle/Demangle.h"
 #include "llvm/Demangle/StringViewExtras.h"
 #include "llvm/Demangle/Utility.h"
+
+#include <cctype>
+#include <cstring>
+#include <limits>
+#include <string_view>
 
 using namespace llvm;
 using llvm::itanium_demangle::OutputBuffer;

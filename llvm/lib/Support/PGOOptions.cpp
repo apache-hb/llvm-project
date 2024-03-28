@@ -6,8 +6,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/Support/PGOOptions.h"
 #include "llvm/Support/VirtualFileSystem.h"
 

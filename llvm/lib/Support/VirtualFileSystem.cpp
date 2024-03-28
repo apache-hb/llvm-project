@@ -10,8 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/Support/VirtualFileSystem.h"
 #include "llvm/ADT/ArrayRef.h"
 #include "llvm/ADT/DenseMap.h"
@@ -39,6 +37,19 @@
 #include "llvm/Support/SourceMgr.h"
 #include "llvm/Support/YAMLParser.h"
 #include "llvm/Support/raw_ostream.h"
+#include <algorithm>
+#include <atomic>
+#include <cassert>
+#include <cstdint>
+#include <iterator>
+#include <limits>
+#include <map>
+#include <memory>
+#include <optional>
+#include <string>
+#include <system_error>
+#include <utility>
+#include <vector>
 
 using namespace llvm;
 using namespace llvm::vfs;

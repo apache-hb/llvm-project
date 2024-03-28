@@ -11,8 +11,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/Support/PrettyStackTrace.h"
 #include "llvm-c/ErrorHandling.h"
 #include "llvm/Config/config.h"
@@ -25,6 +23,13 @@
 #ifdef __APPLE__
 #include "llvm/ADT/SmallString.h"
 #endif
+
+#include <atomic>
+#include <cassert>
+#include <cstdarg>
+#include <cstdio>
+#include <cstring>
+#include <tuple>
 
 #ifdef HAVE_CRASHREPORTERCLIENT_H
 #include <CrashReporterClient.h>

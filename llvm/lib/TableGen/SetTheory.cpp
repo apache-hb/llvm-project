@@ -11,8 +11,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/TableGen/SetTheory.h"
 #include "llvm/ADT/ArrayRef.h"
 #include "llvm/ADT/SmallVector.h"
@@ -23,6 +21,10 @@
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/TableGen/Error.h"
 #include "llvm/TableGen/Record.h"
+#include <algorithm>
+#include <cstdint>
+#include <string>
+#include <utility>
 
 using namespace llvm;
 

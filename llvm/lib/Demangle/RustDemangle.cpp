@@ -11,11 +11,16 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/Demangle/Demangle.h"
 #include "llvm/Demangle/StringViewExtras.h"
 #include "llvm/Demangle/Utility.h"
+
+#include <algorithm>
+#include <cassert>
+#include <cstdint>
+#include <cstring>
+#include <limits>
+#include <string_view>
 
 using namespace llvm;
 
@@ -319,7 +324,8 @@ bool Demangler::demanglePath(IsInType InType, LeaveGenericsOpen LeaveOpen) {
     }
     if (LeaveOpen == LeaveGenericsOpen::Yes)
       return true;
-    print(">");
+    else
+      print(">");
     break;
   }
   case 'B': {
@@ -894,10 +900,9 @@ uint64_t Demangler::parseBase62Number() {
     uint64_t Digit;
     char C = consume();
 
-    if (C == '_')
+    if (C == '_') {
       break;
-
-    if (isDigit(C)) {
+    } else if (isDigit(C)) {
       Digit = C - '0';
     } else if (isLower(C)) {
       Digit = 10 + (C - 'a');

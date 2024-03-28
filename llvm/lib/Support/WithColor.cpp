@@ -6,8 +6,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdafx.h"
-
 #include "llvm/Support/WithColor.h"
 
 #include "DebugOptions.h"
