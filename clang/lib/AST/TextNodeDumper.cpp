@@ -398,6 +398,9 @@ void TextNodeDumper::Visit(const OpenACCClause *C) {
       OS << '(' << cast<OpenACCDefaultClause>(C)->getDefaultClauseKind() << ')';
       break;
     case OpenACCClauseKind::If:
+    case OpenACCClauseKind::Self:
+    case OpenACCClauseKind::NumWorkers:
+    case OpenACCClauseKind::VectorLength:
       // The condition expression will be printed as a part of the 'children',
       // but print 'clause' here so it is clear what is happening from the dump.
       OS << " clause";
@@ -1960,6 +1963,9 @@ void TextNodeDumper::VisitFunctionDecl(const FunctionDecl *D) {
     OS << " delete";
   if (D->isTrivial())
     OS << " trivial";
+
+  if (const StringLiteral *M = D->getDeletedMessage())
+    AddChild("delete message", [=] { Visit(M); });
 
   if (D->isIneligibleOrNotSelected())
     OS << (isa<CXXDestructorDecl>(D) ? " not_selected" : " ineligible");
