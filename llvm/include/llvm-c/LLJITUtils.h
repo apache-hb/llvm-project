@@ -36,7 +36,7 @@ LLVM_C_EXTERN_C_BEGIN
  *
  * @{
  */
-
+LLVM_C_SYMBOL
 /**
  * Install the plugin that submits debug objects to the executor. Executors must
  * expose the llvm_orc_registerJITLoaderGDBWrapper symbol.

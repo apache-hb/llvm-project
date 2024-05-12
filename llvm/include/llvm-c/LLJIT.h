@@ -71,8 +71,9 @@ typedef struct LLVMOrcOpaqueLLJIT *LLVMOrcLLJITRef;
  * The client owns the resulting LLJITBuilder and should dispose of it using
  * LLVMOrcDisposeLLJITBuilder once they are done with it.
  */
-LLVMOrcLLJITBuilderRef LLVMOrcCreateLLJITBuilder(void);
+LLVM_C_SYMBOL LLVMOrcLLJITBuilderRef LLVMOrcCreateLLJITBuilder(void);
 
+LLVM_C_SYMBOL
 /**
  * Dispose of an LLVMOrcLLJITBuilderRef. This should only be called if ownership
  * has not been passed to LLVMOrcCreateLLJIT (e.g. because some error prevented
@@ -80,6 +81,7 @@ LLVMOrcLLJITBuilderRef LLVMOrcCreateLLJITBuilder(void);
  */
 void LLVMOrcDisposeLLJITBuilder(LLVMOrcLLJITBuilderRef Builder);
 
+LLVM_C_SYMBOL
 /**
  * Set the JITTargetMachineBuilder to be used when constructing the LLJIT
  * instance. Calling this function is optional: if it is not called then the
@@ -92,13 +94,14 @@ void LLVMOrcDisposeLLJITBuilder(LLVMOrcLLJITBuilderRef Builder);
 void LLVMOrcLLJITBuilderSetJITTargetMachineBuilder(
     LLVMOrcLLJITBuilderRef Builder, LLVMOrcJITTargetMachineBuilderRef JTMB);
 
+LLVM_C_SYMBOL
 /**
  * Set an ObjectLinkingLayer creator function for this LLJIT instance.
  */
 void LLVMOrcLLJITBuilderSetObjectLinkingLayerCreator(
     LLVMOrcLLJITBuilderRef Builder,
     LLVMOrcLLJITBuilderObjectLinkingLayerCreatorFunction F, void *Ctx);
-
+LLVM_C_SYMBOL
 /**
  * Create an LLJIT instance from an LLJITBuilder.
  *
@@ -115,12 +118,12 @@ void LLVMOrcLLJITBuilderSetObjectLinkingLayerCreator(
  */
 LLVMErrorRef LLVMOrcCreateLLJIT(LLVMOrcLLJITRef *Result,
                                 LLVMOrcLLJITBuilderRef Builder);
-
+LLVM_C_SYMBOL
 /**
  * Dispose of an LLJIT instance.
  */
 LLVMErrorRef LLVMOrcDisposeLLJIT(LLVMOrcLLJITRef J);
-
+LLVM_C_SYMBOL
 /**
  * Get a reference to the ExecutionSession for this LLJIT instance.
  *
@@ -128,7 +131,7 @@ LLVMErrorRef LLVMOrcDisposeLLJIT(LLVMOrcLLJITRef J);
  * responsible for managing its memory.
  */
 LLVMOrcExecutionSessionRef LLVMOrcLLJITGetExecutionSession(LLVMOrcLLJITRef J);
-
+LLVM_C_SYMBOL
 /**
  * Return a reference to the Main JITDylib.
  *
@@ -136,18 +139,18 @@ LLVMOrcExecutionSessionRef LLVMOrcLLJITGetExecutionSession(LLVMOrcLLJITRef J);
  * for managing its memory.
  */
 LLVMOrcJITDylibRef LLVMOrcLLJITGetMainJITDylib(LLVMOrcLLJITRef J);
-
+LLVM_C_SYMBOL
 /**
  * Return the target triple for this LLJIT instance. This string is owned by
  * the LLJIT instance and should not be freed by the client.
  */
 const char *LLVMOrcLLJITGetTripleString(LLVMOrcLLJITRef J);
-
+LLVM_C_SYMBOL
 /**
  * Returns the global prefix character according to the LLJIT's DataLayout.
  */
 char LLVMOrcLLJITGetGlobalPrefix(LLVMOrcLLJITRef J);
-
+LLVM_C_SYMBOL
 /**
  * Mangles the given string according to the LLJIT instance's DataLayout, then
  * interns the result in the SymbolStringPool and returns a reference to the
@@ -157,7 +160,7 @@ char LLVMOrcLLJITGetGlobalPrefix(LLVMOrcLLJITRef J);
  */
 LLVMOrcSymbolStringPoolEntryRef
 LLVMOrcLLJITMangleAndIntern(LLVMOrcLLJITRef J, const char *UnmangledName);
-
+LLVM_C_SYMBOL
 /**
  * Add a buffer representing an object file to the given JITDylib in the given
  * LLJIT instance. This operation transfers ownership of the buffer to the
@@ -169,7 +172,7 @@ LLVMOrcLLJITMangleAndIntern(LLVMOrcLLJITRef J, const char *UnmangledName);
  */
 LLVMErrorRef LLVMOrcLLJITAddObjectFile(LLVMOrcLLJITRef J, LLVMOrcJITDylibRef JD,
                                        LLVMMemoryBufferRef ObjBuffer);
-
+LLVM_C_SYMBOL
 /**
  * Add a buffer representing an object file to the given ResourceTracker's
  * JITDylib in the given LLJIT instance. This operation transfers ownership of
@@ -182,7 +185,7 @@ LLVMErrorRef LLVMOrcLLJITAddObjectFile(LLVMOrcLLJITRef J, LLVMOrcJITDylibRef JD,
 LLVMErrorRef LLVMOrcLLJITAddObjectFileWithRT(LLVMOrcLLJITRef J,
                                              LLVMOrcResourceTrackerRef RT,
                                              LLVMMemoryBufferRef ObjBuffer);
-
+LLVM_C_SYMBOL
 /**
  * Add an IR module to the given JITDylib in the given LLJIT instance. This
  * operation transfers ownership of the TSM argument to the LLJIT instance.
@@ -195,7 +198,7 @@ LLVMErrorRef LLVMOrcLLJITAddObjectFileWithRT(LLVMOrcLLJITRef J,
 LLVMErrorRef LLVMOrcLLJITAddLLVMIRModule(LLVMOrcLLJITRef J,
                                          LLVMOrcJITDylibRef JD,
                                          LLVMOrcThreadSafeModuleRef TSM);
-
+LLVM_C_SYMBOL
 /**
  * Add an IR module to the given ResourceTracker's JITDylib in the given LLJIT
  * instance. This operation transfers ownership of the TSM argument to the LLJIT
@@ -208,7 +211,7 @@ LLVMErrorRef LLVMOrcLLJITAddLLVMIRModule(LLVMOrcLLJITRef J,
 LLVMErrorRef LLVMOrcLLJITAddLLVMIRModuleWithRT(LLVMOrcLLJITRef J,
                                                LLVMOrcResourceTrackerRef JD,
                                                LLVMOrcThreadSafeModuleRef TSM);
-
+LLVM_C_SYMBOL
 /**
  * Look up the given symbol in the main JITDylib of the given LLJIT instance.
  *
@@ -217,23 +220,23 @@ LLVMErrorRef LLVMOrcLLJITAddLLVMIRModuleWithRT(LLVMOrcLLJITRef J,
 LLVMErrorRef LLVMOrcLLJITLookup(LLVMOrcLLJITRef J,
                                 LLVMOrcExecutorAddress *Result,
                                 const char *Name);
-
+LLVM_C_SYMBOL
 /**
  * Returns a non-owning reference to the LLJIT instance's object linking layer.
  */
 LLVMOrcObjectLayerRef LLVMOrcLLJITGetObjLinkingLayer(LLVMOrcLLJITRef J);
-
+LLVM_C_SYMBOL
 /**
  * Returns a non-owning reference to the LLJIT instance's object linking layer.
  */
 LLVMOrcObjectTransformLayerRef
 LLVMOrcLLJITGetObjTransformLayer(LLVMOrcLLJITRef J);
-
+LLVM_C_SYMBOL
 /**
  * Returns a non-owning reference to the LLJIT instance's IR transform layer.
  */
 LLVMOrcIRTransformLayerRef LLVMOrcLLJITGetIRTransformLayer(LLVMOrcLLJITRef J);
-
+LLVM_C_SYMBOL
 /**
  * Get the LLJIT instance's default data layout string.
  *

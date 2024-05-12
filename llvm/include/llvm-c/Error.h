@@ -41,7 +41,7 @@ typedef const void *LLVMErrorTypeId;
  * Returns the type id for the given error instance, which must be a failure
  * value (i.e. non-null).
  */
-LLVMErrorTypeId LLVMGetErrorTypeId(LLVMErrorRef Err);
+LLVM_C_SYMBOL LLVMErrorTypeId LLVMGetErrorTypeId(LLVMErrorRef Err);
 
 /**
  * Dispose of the given error without handling it. This operation consumes the
@@ -49,7 +49,7 @@ LLVMErrorTypeId LLVMGetErrorTypeId(LLVMErrorRef Err);
  * Note: This method *only* needs to be called if the error is not being passed
  * to some other consuming operation, e.g. LLVMGetErrorMessage.
  */
-void LLVMConsumeError(LLVMErrorRef Err);
+LLVM_C_SYMBOL void LLVMConsumeError(LLVMErrorRef Err);
 
 /**
  * Returns the given string's error message. This operation consumes the error,
@@ -57,22 +57,22 @@ void LLVMConsumeError(LLVMErrorRef Err);
  * The caller is responsible for disposing of the string by calling
  * LLVMDisposeErrorMessage.
  */
-char *LLVMGetErrorMessage(LLVMErrorRef Err);
+LLVM_C_SYMBOL char *LLVMGetErrorMessage(LLVMErrorRef Err);
 
 /**
  * Dispose of the given error message.
  */
-void LLVMDisposeErrorMessage(char *ErrMsg);
+LLVM_C_SYMBOL void LLVMDisposeErrorMessage(char *ErrMsg);
 
 /**
  * Returns the type id for llvm StringError.
  */
-LLVMErrorTypeId LLVMGetStringErrorTypeId(void);
+LLVM_C_SYMBOL LLVMErrorTypeId LLVMGetStringErrorTypeId(void);
 
 /**
  * Create a StringError.
  */
-LLVMErrorRef LLVMCreateStringError(const char *ErrMsg);
+LLVM_C_SYMBOL LLVMErrorRef LLVMCreateStringError(const char *ErrMsg);
 
 /**
  * @}

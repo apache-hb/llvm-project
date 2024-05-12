@@ -36,4 +36,18 @@
 #define LLVM_C_EXTERN_C_END LLVM_C_STRICT_PROTOTYPES_END
 #endif
 
+#ifdef _MSC_VER
+#define LLVM_C_EXPORT __declspec(dllexport)
+#define LLVM_C_IMPORT __declspec(dllimport)
+#else
+#define LLVM_C_EXPORT
+#define LLVM_C_IMPORT
+#endif
+
+#ifdef LLVM_BUILD_LIBRARY
+#define LLVM_C_SYMBOL LLVM_C_EXPORT
+#else
+#define LLVM_C_SYMBOL LLVM_C_IMPORT
+#endif
+
 #endif

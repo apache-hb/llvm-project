@@ -55,14 +55,14 @@ enum LLVMRemarkType {
  * \since REMARKS_API_VERSION=0
  */
 typedef struct LLVMRemarkOpaqueString *LLVMRemarkStringRef;
-
+LLVM_C_SYMBOL
 /**
  * Returns the buffer holding the string.
  *
  * \since REMARKS_API_VERSION=0
  */
 extern const char *LLVMRemarkStringGetData(LLVMRemarkStringRef String);
-
+LLVM_C_SYMBOL
 /**
  * Returns the size of the string.
  *
@@ -76,7 +76,7 @@ extern uint32_t LLVMRemarkStringGetLen(LLVMRemarkStringRef String);
  * \since REMARKS_API_VERSION=0
  */
 typedef struct LLVMRemarkOpaqueDebugLoc *LLVMRemarkDebugLocRef;
-
+LLVM_C_SYMBOL
 /**
  * Return the path to the source file for a debug location.
  *
@@ -84,14 +84,14 @@ typedef struct LLVMRemarkOpaqueDebugLoc *LLVMRemarkDebugLocRef;
  */
 extern LLVMRemarkStringRef
 LLVMRemarkDebugLocGetSourceFilePath(LLVMRemarkDebugLocRef DL);
-
+LLVM_C_SYMBOL
 /**
  * Return the line in the source file for a debug location.
  *
  * \since REMARKS_API_VERSION=0
  */
 extern uint32_t LLVMRemarkDebugLocGetSourceLine(LLVMRemarkDebugLocRef DL);
-
+LLVM_C_SYMBOL
 /**
  * Return the column in the source file for a debug location.
  *
@@ -107,7 +107,7 @@ extern uint32_t LLVMRemarkDebugLocGetSourceColumn(LLVMRemarkDebugLocRef DL);
  * \since REMARKS_API_VERSION=0
  */
 typedef struct LLVMRemarkOpaqueArg *LLVMRemarkArgRef;
-
+LLVM_C_SYMBOL
 /**
  * Returns the key of an argument. The key defines what the value is, and the
  * same key can appear multiple times in the list of arguments.
@@ -115,14 +115,14 @@ typedef struct LLVMRemarkOpaqueArg *LLVMRemarkArgRef;
  * \since REMARKS_API_VERSION=0
  */
 extern LLVMRemarkStringRef LLVMRemarkArgGetKey(LLVMRemarkArgRef Arg);
-
+LLVM_C_SYMBOL
 /**
  * Returns the value of an argument. This is a string that can contain newlines.
  *
  * \since REMARKS_API_VERSION=0
  */
 extern LLVMRemarkStringRef LLVMRemarkArgGetValue(LLVMRemarkArgRef Arg);
-
+LLVM_C_SYMBOL
 /**
  * Returns the debug location that is attached to the value of this argument.
  *
@@ -138,14 +138,14 @@ extern LLVMRemarkDebugLocRef LLVMRemarkArgGetDebugLoc(LLVMRemarkArgRef Arg);
  * \since REMARKS_API_VERSION=0
  */
 typedef struct LLVMRemarkOpaqueEntry *LLVMRemarkEntryRef;
-
+LLVM_C_SYMBOL
 /**
  * Free the resources used by the remark entry.
  *
  * \since REMARKS_API_VERSION=0
  */
 extern void LLVMRemarkEntryDispose(LLVMRemarkEntryRef Remark);
-
+LLVM_C_SYMBOL
 /**
  * The type of the remark. For example, it can allow users to only keep the
  * missed optimizations from the compiler.
@@ -153,7 +153,7 @@ extern void LLVMRemarkEntryDispose(LLVMRemarkEntryRef Remark);
  * \since REMARKS_API_VERSION=0
  */
 extern enum LLVMRemarkType LLVMRemarkEntryGetType(LLVMRemarkEntryRef Remark);
-
+LLVM_C_SYMBOL
 /**
  * Get the name of the pass that emitted this remark.
  *
@@ -161,7 +161,7 @@ extern enum LLVMRemarkType LLVMRemarkEntryGetType(LLVMRemarkEntryRef Remark);
  */
 extern LLVMRemarkStringRef
 LLVMRemarkEntryGetPassName(LLVMRemarkEntryRef Remark);
-
+LLVM_C_SYMBOL
 /**
  * Get an identifier of the remark.
  *
@@ -169,7 +169,7 @@ LLVMRemarkEntryGetPassName(LLVMRemarkEntryRef Remark);
  */
 extern LLVMRemarkStringRef
 LLVMRemarkEntryGetRemarkName(LLVMRemarkEntryRef Remark);
-
+LLVM_C_SYMBOL
 /**
  * Get the name of the function being processed when the remark was emitted.
  *
@@ -177,7 +177,7 @@ LLVMRemarkEntryGetRemarkName(LLVMRemarkEntryRef Remark);
  */
 extern LLVMRemarkStringRef
 LLVMRemarkEntryGetFunctionName(LLVMRemarkEntryRef Remark);
-
+LLVM_C_SYMBOL
 /**
  * Returns the debug location that is attached to this remark.
  *
@@ -187,7 +187,7 @@ LLVMRemarkEntryGetFunctionName(LLVMRemarkEntryRef Remark);
  */
 extern LLVMRemarkDebugLocRef
 LLVMRemarkEntryGetDebugLoc(LLVMRemarkEntryRef Remark);
-
+LLVM_C_SYMBOL
 /**
  * Return the hotness of the remark.
  *
@@ -196,14 +196,14 @@ LLVMRemarkEntryGetDebugLoc(LLVMRemarkEntryRef Remark);
  * \since REMARKS_API_VERSION=0
  */
 extern uint64_t LLVMRemarkEntryGetHotness(LLVMRemarkEntryRef Remark);
-
+LLVM_C_SYMBOL
 /**
  * The number of arguments the remark holds.
  *
  * \since REMARKS_API_VERSION=0
  */
 extern uint32_t LLVMRemarkEntryGetNumArgs(LLVMRemarkEntryRef Remark);
-
+LLVM_C_SYMBOL
 /**
  * Get a new iterator to iterate over a remark's argument.
  *
@@ -214,7 +214,7 @@ extern uint32_t LLVMRemarkEntryGetNumArgs(LLVMRemarkEntryRef Remark);
  * \since REMARKS_API_VERSION=0
  */
 extern LLVMRemarkArgRef LLVMRemarkEntryGetFirstArg(LLVMRemarkEntryRef Remark);
-
+LLVM_C_SYMBOL
 /**
  * Get the next argument in \p Remark from the position of \p It.
  *
@@ -228,7 +228,7 @@ extern LLVMRemarkArgRef LLVMRemarkEntryGetNextArg(LLVMRemarkArgRef It,
                                                   LLVMRemarkEntryRef Remark);
 
 typedef struct LLVMRemarkOpaqueParser *LLVMRemarkParserRef;
-
+LLVM_C_SYMBOL
 /**
  * Creates a remark parser that can be used to parse the buffer located in \p
  * Buf of size \p Size bytes.
@@ -242,7 +242,7 @@ typedef struct LLVMRemarkOpaqueParser *LLVMRemarkParserRef;
  */
 extern LLVMRemarkParserRef LLVMRemarkParserCreateYAML(const void *Buf,
                                                       uint64_t Size);
-
+LLVM_C_SYMBOL
 /**
  * Creates a remark parser that can be used to parse the buffer located in \p
  * Buf of size \p Size bytes.
@@ -256,7 +256,7 @@ extern LLVMRemarkParserRef LLVMRemarkParserCreateYAML(const void *Buf,
  */
 extern LLVMRemarkParserRef LLVMRemarkParserCreateBitstream(const void *Buf,
                                                            uint64_t Size);
-
+LLVM_C_SYMBOL
 /**
  * Returns the next remark in the file.
  *
@@ -300,14 +300,14 @@ extern LLVMRemarkParserRef LLVMRemarkParserCreateBitstream(const void *Buf,
  * \since REMARKS_API_VERSION=0
  */
 extern LLVMRemarkEntryRef LLVMRemarkParserGetNext(LLVMRemarkParserRef Parser);
-
+LLVM_C_SYMBOL
 /**
  * Returns `1` if the parser encountered an error while parsing the buffer.
  *
  * \since REMARKS_API_VERSION=0
  */
 extern LLVMBool LLVMRemarkParserHasError(LLVMRemarkParserRef Parser);
-
+LLVM_C_SYMBOL
 /**
  * Returns a null-terminated string containing an error message.
  *
@@ -320,14 +320,14 @@ extern LLVMBool LLVMRemarkParserHasError(LLVMRemarkParserRef Parser);
  * \since REMARKS_API_VERSION=0
  */
 extern const char *LLVMRemarkParserGetErrorMessage(LLVMRemarkParserRef Parser);
-
+LLVM_C_SYMBOL
 /**
  * Releases all the resources used by \p Parser.
  *
  * \since REMARKS_API_VERSION=0
  */
 extern void LLVMRemarkParserDispose(LLVMRemarkParserRef Parser);
-
+LLVM_C_SYMBOL
 /**
  * Returns the version of the remarks library.
  *
