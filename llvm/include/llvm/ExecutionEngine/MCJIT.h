@@ -17,7 +17,7 @@
 #include "llvm/ExecutionEngine/ExecutionEngine.h"
 #include <cstdlib>
 
-extern "C" void LLVMLinkInMCJIT();
+LLVM_C_SYMBOL extern "C" void LLVMLinkInMCJIT();
 
 namespace {
   struct ForceMCJITLinking {

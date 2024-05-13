@@ -11,6 +11,7 @@
 ///
 //===----------------------------------------------------------------------===//
 
+#include "llvm-c/ExternC.h"
 #include "DirectXMCTargetDesc.h"
 #include "DirectXContainerObjectWriter.h"
 #include "TargetInfo/DirectXTargetInfo.h"
@@ -141,7 +142,7 @@ static MCRegisterInfo *createDirectXMCRegisterInfo(const Triple &Triple) {
 
 static MCInstrInfo *createDirectXMCInstrInfo() { return new MCInstrInfo(); }
 
-extern "C" LLVM_EXTERNAL_VISIBILITY void LLVMInitializeDirectXTargetMC() {
+LLVM_C_SYMBOL extern "C" LLVM_EXTERNAL_VISIBILITY void LLVMInitializeDirectXTargetMC() {
   Target &T = getTheDirectXTarget();
   RegisterMCAsmInfo<DirectXMCAsmInfo> X(T);
   TargetRegistry::RegisterMCInstrInfo(T, createDirectXMCInstrInfo);

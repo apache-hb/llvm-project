@@ -10,7 +10,7 @@
 /// This file contains DirectX target initializer.
 ///
 //===----------------------------------------------------------------------===//
-
+#include "llvm-c/ExternC.h"
 #include "llvm/MC/TargetRegistry.h"
 #include "llvm/Support/Compiler.h"
 #include "llvm/TargetParser/Triple.h"
@@ -24,7 +24,7 @@ Target &getTheDirectXTarget() {
 
 using namespace llvm;
 
-extern "C" LLVM_EXTERNAL_VISIBILITY void LLVMInitializeDirectXTargetInfo() {
+LLVM_C_SYMBOL extern "C" LLVM_EXTERNAL_VISIBILITY void LLVMInitializeDirectXTargetInfo() {
   RegisterTarget<Triple::dxil, /*HasJIT=*/false> X(
       getTheDirectXTarget(), "dxil", "DirectX Intermediate Language", "DXIL");
 }

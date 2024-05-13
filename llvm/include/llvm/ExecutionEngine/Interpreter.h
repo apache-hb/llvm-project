@@ -16,7 +16,7 @@
 
 #include "llvm/ExecutionEngine/ExecutionEngine.h"
 
-extern "C" void LLVMLinkInInterpreter();
+LLVM_C_SYMBOL extern "C" void LLVMLinkInInterpreter();
 
 namespace {
   struct ForceInterpreterLinking {

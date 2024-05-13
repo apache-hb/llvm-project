@@ -1163,8 +1163,6 @@ if (UNIX AND ${CMAKE_SYSTEM_NAME} MATCHES "SunOS")
           add_compile_definitions(_FILE_OFFSET_BITS=64)
 endif()
 
-add_compile_definitions(LLVM_BUILD_LIBRARY)
-
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 include_directories( ${LLVM_INCLUDE_DIR} ${LLVM_MAIN_INCLUDE_DIR})
