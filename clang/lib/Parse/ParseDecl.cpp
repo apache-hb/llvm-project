@@ -5687,6 +5687,10 @@ void Parser::ParseEnumBody(SourceLocation StartLoc, Decl *EnumDecl) {
 
   // Parse the enumerator-list.
   while (Tok.isNot(tok::r_brace)) {
+    // If attributes exist after the enumerator, parse them.
+    ParsedAttributes attrs(AttrFactory);
+    MaybeParseMicrosoftAttributes(attrs);
+    
     // Parse enumerator. If failed, try skipping till the start of the next
     // enumerator definition.
     if (Tok.isNot(tok::identifier)) {
@@ -5699,8 +5703,6 @@ void Parser::ParseEnumBody(SourceLocation StartLoc, Decl *EnumDecl) {
     IdentifierInfo *Ident = Tok.getIdentifierInfo();
     SourceLocation IdentLoc = ConsumeToken();
 
-    // If attributes exist after the enumerator, parse them.
-    ParsedAttributes attrs(AttrFactory);
     MaybeParseGNUAttributes(attrs);
     if (isAllowedCXX11AttributeSpecifier()) {
       if (getLangOpts().CPlusPlus)
