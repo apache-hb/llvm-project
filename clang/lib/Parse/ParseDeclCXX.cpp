@@ -5241,8 +5241,11 @@ void Parser::ParseMicrosoftAttributes(ParsedAttributes &Attrs) {
         IdentifierInfo *II = Tok.getIdentifierInfo();
         SourceLocation NameLoc = Tok.getLocation();
         ConsumeToken();
-        int Attr = hasAttribute(AttributeCommonInfo::Syntax::AS_Microsoft, nullptr, 
+        int Attr = hasAttribute(AttributeCommonInfo::Syntax::AS_Microsoft, nullptr,
                                 II, getTargetInfo(), getLangOpts());
+        // if (Attr == 0) {
+        //   Diag(NameLoc, diag::warn_unknown_attribute_ignored) << II;
+        // }
         // For HLSL we want to handle all attributes, but for MSVC compat, we
         // silently ignore unknown Microsoft attributes.
         if (getLangOpts().HLSL || Attr != 0) {
